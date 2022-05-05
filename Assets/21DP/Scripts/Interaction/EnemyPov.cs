@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyPov : MonoBehaviour
 {
-    public Transform player;
+    NavMeshAgent agent;
+    Transform player;
     public GameObject[] enemySprites;
-    Vector3 dpf;
-    Vector3 dpb;
     public float back;
     public float front;
+    bool canMove = false;
     public void Start()
     {
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         player = enemyManager._player;
         transform.LookAt(Camera.main.transform);
+        StartCoroutine(EnableMovement());
     }
     void Update()
     {
@@ -23,11 +26,21 @@ public class EnemyPov : MonoBehaviour
         {
             enemySprites[0].gameObject.SetActive(true);
             enemySprites[1].gameObject.SetActive(false);
+            
         }
         else if (back < front)
         {
             enemySprites[0].gameObject.SetActive(false);
             enemySprites[1].gameObject.SetActive(true);
         }
+
+        if (canMove)
+            agent.SetDestination(player.position);
+    }
+
+    IEnumerator EnableMovement()
+    {
+        yield return new WaitForSeconds(3f);
+        canMove = true;
     }
 }
