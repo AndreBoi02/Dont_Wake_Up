@@ -12,7 +12,8 @@ public class EnemyPov : MonoBehaviour
     public float front;
     public void Start()
     {
-        //player = enemyManager._player;
+        player = enemyManager._player;
+        transform.LookAt(Camera.main.transform);
     }
     void Update()
     {
