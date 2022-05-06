@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class HealthSystem : MonoBehaviour
     {
         if (hp <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneChanger.lastLevelIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene("GameOver");
             Debug.Log("You're Dead");
         }
     }

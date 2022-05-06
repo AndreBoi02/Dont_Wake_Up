@@ -7,10 +7,13 @@ public class EnemyPov : MonoBehaviour
 {
     NavMeshAgent agent;
     Transform player;
+    GameObject followToy;
+    public Transform toysensor;
     public GameObject[] enemySprites;
     public float back;
     public float front;
     bool canMove = false;
+    bool isthereatoy = false;
     public void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -26,7 +29,7 @@ public class EnemyPov : MonoBehaviour
         {
             enemySprites[0].gameObject.SetActive(true);
             enemySprites[1].gameObject.SetActive(false);
-            
+
         }
         else if (back < front)
         {
@@ -35,12 +38,41 @@ public class EnemyPov : MonoBehaviour
         }
 
         if (canMove)
-            agent.SetDestination(player.position);
+        {
+            if (isthereatoy == false)
+            {
+                agent.SetDestination(player.position);
+            }
+            else if (isthereatoy == true)
+            {
+                agent.SetDestination(followToy.transform.position);
+            }
+        }
+
     }
 
     IEnumerator EnableMovement()
     {
         yield return new WaitForSeconds(3f);
         canMove = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Toy")
+        {
+            isthereatoy = true;
+            followToy = other.gameObject;
+            Debug.Log("Toy entered de box");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Toy")
+        {
+            isthereatoy = false;
+            Destroy(other.gameObject);
+        }
     }
 }

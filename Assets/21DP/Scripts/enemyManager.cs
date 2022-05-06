@@ -13,6 +13,6 @@ public class enemyManager : MonoBehaviour
     {
         _player = player;
         _maxEnemyCount = availableEnemy;
-;
+
     }
 }
