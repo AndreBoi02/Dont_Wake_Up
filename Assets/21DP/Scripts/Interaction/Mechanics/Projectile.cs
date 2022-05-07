@@ -15,8 +15,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log(collision.transform.name);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }   
 
     public float GetDamegeAmount() { return damageAmount; }

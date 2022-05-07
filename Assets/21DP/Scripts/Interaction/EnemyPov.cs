@@ -14,6 +14,7 @@ public class EnemyPov : MonoBehaviour
     public float front;
     bool canMove = false;
     bool isthereatoy = false;
+
     public void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -43,7 +44,7 @@ public class EnemyPov : MonoBehaviour
             {
                 agent.SetDestination(player.position);
             }
-            else if (isthereatoy == true)
+            else if (isthereatoy == true && followToy)
             {
                 agent.SetDestination(followToy.transform.position);
             }
@@ -53,7 +54,7 @@ public class EnemyPov : MonoBehaviour
 
     IEnumerator EnableMovement()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         canMove = true;
     }
 
@@ -63,7 +64,6 @@ public class EnemyPov : MonoBehaviour
         {
             isthereatoy = true;
             followToy = other.gameObject;
-            Debug.Log("Toy entered de box");
         }
     }
 
@@ -71,8 +71,17 @@ public class EnemyPov : MonoBehaviour
     {
         if (other.tag == "Toy")
         {
-            isthereatoy = false;
-            Destroy(other.gameObject);
+            Invoke("killToy", 2f);
         }
+    }
+
+    void killToy()
+    {
+        isthereatoy = false;
+        if (followToy != null)
+        {
+            Destroy(followToy.gameObject);
+        }
+        
     }
 }

@@ -31,7 +31,7 @@ public class Selector : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 10))
+        if (Physics.Raycast(ray, out hit, 3))
         {
             interactable = hit.transform.gameObject.GetComponent<Interactable>();
 
