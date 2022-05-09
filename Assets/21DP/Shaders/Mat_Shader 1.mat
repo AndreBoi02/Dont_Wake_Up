@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Shader
+  m_Name: Mat_Shader 1
   m_Shader: {fileID: -6465566751694194690, guid: 42c6fe5474df72249ab51f48aaafd3cf, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
@@ -50,6 +50,6 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _BaseColor: {r: 0.929603, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 1773.5558, g: 1773.5558, b: 1773.5558, a: 0}
+    - _EmissionColor: {r: 2367.836, g: 2367.836, b: 2367.836, a: 0}
     - _LOL: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
   m_BuildTextureStacks: []

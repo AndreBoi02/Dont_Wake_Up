@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    GameObject outlineMesh;
+    public GameObject outlineMesh;
 
     private void Start()
     {
         outlineMesh = gameObject.transform.GetChild(0).gameObject;
     }
-    public void OnLookingAt(bool state) 
+    public void OnLookingAt(bool state)
     {
-        outlineMesh.SetActive(state);
+        if (outlineMesh != null)
+        {
+            outlineMesh.SetActive(state);
+        }
+
     }
     public virtual void OnInteraction()
     {
-        
+
     }
     public virtual void OnGrab(Transform parent) { }
 }

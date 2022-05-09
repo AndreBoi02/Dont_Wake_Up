@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
+    //public AudioClip Scream;
+    //public AudioSource audioSource;
     [SerializeField]
     private Image healthBar;
 
@@ -34,6 +36,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (hp <= 0)
         {
+            //PlaySFX();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             SceneChanger.lastLevelIndex = SceneManager.GetActiveScene().buildIndex;
@@ -41,4 +44,10 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("You're Dead");
         }
     }
+
+    //public void PlaySFX()
+    //{
+    //    audioSource.clip = Scream;
+    //    audioSource.Play();
+    //}
 }

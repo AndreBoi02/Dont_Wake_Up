@@ -5,12 +5,22 @@ using UnityEngine;
 public class AppearWall : MonoBehaviour
 {
     public Transform wall;
+    public GameObject enemy;
     public int ID;
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.tag == "Enemy")
+        {
+            enemy = other.gameObject;
+        }
         if (Inventory.HasKey(ID))
+        {
             escapeOpen();
+            Destroy(enemy);
+        }
+            
     }
 
     private void OnTriggerExit(Collider other)

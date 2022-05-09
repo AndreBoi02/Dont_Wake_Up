@@ -13,7 +13,7 @@ public class Selector : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !enableInteraction)
+        if (Input.GetMouseButton(0) && !enableInteraction)
         {
             if (!firstClickDone)
             {
@@ -49,7 +49,7 @@ public class Selector : MonoBehaviour
             else
             {
                 interactionMessage.SetActive(false);
-                if (lastInteractedObject != null)
+                if(lastInteractedObject != null)
                 {
                     lastInteractedObject.OnLookingAt(false);
                     lastInteractedObject = null;
