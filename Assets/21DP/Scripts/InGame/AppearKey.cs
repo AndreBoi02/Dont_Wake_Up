@@ -24,12 +24,10 @@ public class AppearKey : MonoBehaviour
         if (other.name == "o1")
         {
             O1 = true;
-            Debug.Log("First One Pressed");
         }
         if (other.name == "o2")
         {
             O2 = true;
-            Debug.Log("Second One Pressed");
         }
     }
     void KeyOn()

@@ -7,7 +7,6 @@ public class Key : Item
     public int ID = 0;
     public override void OnPickUp()
     {
-        Debug.Log("You got a key");
         Inventory.SaveItem(this);
         LevelManager.Send2Pool(this.gameObject);
         gameObject.SetActive(false);

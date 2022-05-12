@@ -13,7 +13,6 @@ public class Inventory : MonoBehaviour
     public static void SaveItem(Item item)
     {
         inventory.Add(item);
-        Debug.Log("Saving item");
     }
 
     public static bool HasKey(int index)

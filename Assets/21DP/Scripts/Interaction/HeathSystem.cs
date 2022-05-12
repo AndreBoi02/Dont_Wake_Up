@@ -28,4 +28,11 @@ public class HeathSystem : MonoBehaviour
             heartsIcons[index].SetActive(false);
         }
     }
+
+    public void ReloadToys()
+    {
+        heartsIcons[0].SetActive(true);
+        heartsIcons[1].SetActive(true);
+        heartsIcons[2].SetActive(true);
+    }
 }

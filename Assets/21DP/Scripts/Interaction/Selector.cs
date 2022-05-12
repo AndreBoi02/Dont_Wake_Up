@@ -8,12 +8,13 @@ public class Selector : MonoBehaviour
     public GameObject interactionMessage;
     bool firstClickDone = false;
 
+    int onetimeonly = 1;
     Interactable lastInteractedObject;
     Interactable interactable;
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && !enableInteraction)
+        if (Input.GetMouseButtonDown(0) && !enableInteraction)
         {
             if (!firstClickDone)
             {
@@ -23,6 +24,12 @@ public class Selector : MonoBehaviour
 
             if (!enableInteraction && interactable)
                 enableInteraction = true;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            enableInteraction = false;
+            onetimeonly = 1;
         }
     }
 
@@ -34,16 +41,19 @@ public class Selector : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 3))
         {
             interactable = hit.transform.gameObject.GetComponent<Interactable>();
-
+            
             if (interactable)
             {
                 lastInteractedObject = interactable;
                 interactionMessage.SetActive(true);
                 interactable.OnLookingAt(true);
 
-                if (!enableInteraction) return;
 
-                interactable.OnInteraction();
+                if (enableInteraction && onetimeonly >= 1)
+                {
+                    interactable.OnInteraction();
+                    onetimeonly -= 1;
+                }
             }
 
             else

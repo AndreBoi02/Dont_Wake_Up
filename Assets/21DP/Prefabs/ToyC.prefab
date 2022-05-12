@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d084bb6c07d79a8489f741eda0cec620, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88bffbf0143984b40940bf7a6cb300f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5040580211921538453}
   - component: {fileID: 177664558447034781}
   m_Layer: 0
-  m_Name: ToyB
+  m_Name: ToyC
   m_TagString: Toy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

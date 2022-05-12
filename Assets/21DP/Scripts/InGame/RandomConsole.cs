@@ -13,10 +13,8 @@ public class RandomConsole : MonoBehaviour
     private void Start()
     {
         occupiedPoint = Random.Range(0, 5);
-        Debug.Log(occupiedPoint);
         button.transform.position = spawnPoints[occupiedPoint].position;
         newPoint = Random.Range(0, 5);
-        Debug.Log(newPoint);
     }
 
     private void Update()
@@ -24,7 +22,6 @@ public class RandomConsole : MonoBehaviour
         if (newPoint == occupiedPoint)
         {
             newPoint = Random.Range(0, 5);
-            Debug.Log(newPoint);
             button2.transform.position = spawnPoints[newPoint].position;
         }
         else if (newPoint != occupiedPoint)

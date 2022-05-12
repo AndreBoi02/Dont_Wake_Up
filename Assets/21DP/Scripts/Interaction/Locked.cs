@@ -8,16 +8,14 @@ public class Locked : Interactable
 
     public override void OnInteraction()
     {
-        Debug.Log("Trying to access...");
         if (Inventory.HasKey(ID))
             OpenLock();
-        else
-            Debug.Log("Can't open");
+        //else
+        //    Debug.Log("Can't open");
     }
 
     void OpenLock()
     {
-        Debug.Log("Open");
         GetComponent<Animator>().enabled = true;
     }
 }

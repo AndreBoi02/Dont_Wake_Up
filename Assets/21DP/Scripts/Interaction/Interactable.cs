@@ -18,9 +18,7 @@ public class Interactable : MonoBehaviour
         }
 
     }
-    public virtual void OnInteraction()
-    {
+    public virtual void OnInteraction() { }
 
-    }
     public virtual void OnGrab(Transform parent) { }
 }
