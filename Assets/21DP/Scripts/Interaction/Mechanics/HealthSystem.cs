@@ -37,6 +37,7 @@ public class HealthSystem : MonoBehaviour
         if (hp <= 0)
         {
             //PlaySFX();
+            Destroy(gameObject);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             SceneChanger.lastLevelIndex = SceneManager.GetActiveScene().buildIndex;
