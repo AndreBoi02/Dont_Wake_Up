@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructible : MonoBehaviour
+public class LasFight : MonoBehaviour
 {
-     public float resistence = 100f;
-    
+    float resistence = 100f;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Projectile")
@@ -18,9 +18,8 @@ public class Destructible : MonoBehaviour
         resistence -= damage;
         if (resistence <= 0)
         {
-            GetComponent<Dropper>().Drop(transform.position);
             Destroy(gameObject);
         }
-            
+
     }
 }
