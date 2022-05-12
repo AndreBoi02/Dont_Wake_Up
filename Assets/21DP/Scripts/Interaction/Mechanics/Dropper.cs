@@ -5,12 +5,13 @@ using UnityEngine;
 public class Dropper : MonoBehaviour
 {
     public GameObject[] dropList;
+    public Transform dropPoint;
 
     public void Drop(Vector3 position)
     {
         int index = Random.Range(0, dropList.Length);
         GameObject drop = dropList[index];
-
+        position = dropPoint.position;
         Instantiate(drop, position, Quaternion.identity);
     }
 }
